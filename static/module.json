@@ -8,7 +8,7 @@
         "verified": 12,
         "maximum": 12
     },
-    "esmodules": ["vendor.mjs", "dfreds-settings-clarity.mjs"],
+    "esmodules": ["dfreds-settings-clarity.mjs"],
     "scripts": [],
     "styles": ["styles/dfreds-settings-clarity.css"],
     "packs": [],
