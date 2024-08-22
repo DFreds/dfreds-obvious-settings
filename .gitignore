@@ -17,6 +17,6 @@ types/foundry/package-lock.json
 
 # Dummy files for vite dev server
 /index.html
-/styles/dfreds-module-template-ts.css
-/dfreds-module-template-ts.mjs
+/styles/dfreds-settings-clarity.css
+/dfreds-settings-clarity.mjs
 /vendor.mjs

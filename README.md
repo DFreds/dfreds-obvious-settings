@@ -1,16 +1,16 @@
-# DFreds Module Template TS
+# DFreds Settings Clarity
 
 [![alt-text](https://img.shields.io/badge/-Patreon-%23f96854?style=for-the-badge)](https://www.patreon.com/dfreds)
 [![alt-text](https://img.shields.io/badge/-Buy%20Me%20A%20Coffee-%23ff813f?style=for-the-badge)](https://www.buymeacoffee.com/dfreds)
 [![alt-text](https://img.shields.io/badge/-Discord-%235662f6?style=for-the-badge)](https://discord.gg/Wq8AEV9bWb)
 
-![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/DFreds/dfreds-module-template-ts/main/static/module.json&label=Foundry%20Version&query=$.compatibility.verified&colorB=ff6400&style=for-the-badge)
+![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/DFreds/dfreds-settings-clarity/main/static/module.json&label=Foundry%20Version&query=$.compatibility.verified&colorB=ff6400&style=for-the-badge)
 
-[![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https://forge-vtt.com/api/bazaar/package/dfreds-module-template-ts&colorB=68a74f&style=for-the-badge)](https://forge-vtt.com/bazaar#package=dfreds-module-template-ts)
-![Latest Release Download Count](https://img.shields.io/github/downloads/DFreds/dfreds-module-template-ts/latest/dfreds-module-template-ts.zip?color=2b82fc&label=LATEST%20DOWNLOADS&style=for-the-badge)
-![Total Download Count](https://img.shields.io/github/downloads/DFreds/dfreds-module-template-ts/total?color=2b82fc&label=TOTAL%20DOWNLOADS&style=for-the-badge)
+[![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https://forge-vtt.com/api/bazaar/package/dfreds-settings-clarity&colorB=68a74f&style=for-the-badge)](https://forge-vtt.com/bazaar#package=dfreds-settings-clarity)
+![Latest Release Download Count](https://img.shields.io/github/downloads/DFreds/dfreds-settings-clarity/latest/dfreds-settings-clarity.zip?color=2b82fc&label=LATEST%20DOWNLOADS&style=for-the-badge)
+![Total Download Count](https://img.shields.io/github/downloads/DFreds/dfreds-settings-clarity/total?color=2b82fc&label=TOTAL%20DOWNLOADS&style=for-the-badge)
 
-**DFreds Module Template TS** is a FoundryVTT module template that uses Typescript and Vite for development.
+**DFreds Settings Clarity** is a FoundryVTT module template that uses Typescript and Vite for development.
 
 ## Setup
 
@@ -30,7 +30,7 @@
 - Run `npm ci`
   - Installs all dependencies according to the `package-lock.json`
 - Run `npm run rename-module`
-  - Replaces all occurrences of `dfreds-module-template-ts` and `DFreds Module Template TS` in the project with your desired module identifier and name
+  - Replaces all occurrences of `dfreds-settings-clarity` and `DFreds Settings Clarity` in the project with your desired module identifier and name
 - Run `npm run update-types`
   - Copies all pf2e types to the `/types` folder using the pf2e path set in `foundryconfig.json`
 - Run `npm run lint:fix`
