@@ -1,7 +1,7 @@
 {
     "id": "dfreds-settings-clarity",
     "title": "DFreds Settings Clarity",
-    "description": "A FoundryVTT template module using typescript and vite",
+    "description": "A FoundryVTT module that indicates if a setting is a world or client scope.",
     "version": "1.0.0",
     "compatibility": {
         "minimum": 12,
