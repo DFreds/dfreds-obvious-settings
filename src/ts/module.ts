@@ -1,20 +1,6 @@
 import "../styles/style.scss"; // Keep or else vite will not include this
-import { ThisModule } from "./api.ts";
-import { HandlebarHelpers } from "./handlebar-helpers.ts";
-import { Settings } from "./settings.ts";
 import { id as MODULE_ID } from "@static/module.json";
 import { libWrapper } from "@static/lib/shim.ts";
-
-Hooks.once("init", () => {
-    new Settings().registerSettings();
-    new HandlebarHelpers().registerHelpers();
-
-    (game.modules.get(MODULE_ID) as ThisModule).api = {
-        test(): void {
-            console.log("Cool");
-        },
-    };
-});
 
 Hooks.once("setup", () => {
     // Various examples
