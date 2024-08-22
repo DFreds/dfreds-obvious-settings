@@ -1,4 +1,3 @@
-import "../styles/style.scss"; // Keep or else vite will not include this
 import { id as MODULE_ID } from "@static/module.json";
 import { libWrapper } from "@static/lib/shim.ts";
 

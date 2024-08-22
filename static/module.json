@@ -10,7 +10,7 @@
     },
     "esmodules": ["dfreds-settings-clarity.mjs"],
     "scripts": [],
-    "styles": ["styles/dfreds-settings-clarity.css"],
+    "styles": [],
     "packs": [],
     "packFolders": [],
     "relationships": {
