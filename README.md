@@ -1,16 +1,37 @@
-# DFreds Settings Clarity
+<div align="center">
+  <img src="https://i.imgur.com/gOZy3Jf.png" width="200" height="200"/>
+</div>
+<h1 align="center">DFreds Settings Clarity</h1>
 
-[![alt-text](https://img.shields.io/badge/-Patreon-%23f96854?style=for-the-badge)](https://www.patreon.com/dfreds)
-[![alt-text](https://img.shields.io/badge/-Buy%20Me%20A%20Coffee-%23ff813f?style=for-the-badge)](https://www.buymeacoffee.com/dfreds)
-[![alt-text](https://img.shields.io/badge/-Discord-%235662f6?style=for-the-badge)](https://discord.gg/Wq8AEV9bWb)
+<h4 align="center">
+  <a href="https://foundryvtt.com/packages/dfreds-settings-clarity">Install</a>
+  ·
+  <a href="https://discord.gg/Wq8AEV9bWb">Discord</a>
+  ·
+  <a href="https://github.com/topics/dfreds-modules">Other Modules</a>
+</h4>
 
-![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/DFreds/dfreds-settings-clarity/main/static/module.json&label=Foundry%20Version&query=$.compatibility.verified&colorB=ff6400&style=for-the-badge)
+<p align="center">
+    <a href="https://github.com/DFreds/dfreds-settings-clarity/pulse"><img src="https://img.shields.io/github/last-commit/DFreds/dfreds-settings-clarity?style=for-the-badge&logo=github&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"></a>
+    <a href="https://github.com/DFreds/dfreds-settings-clarity/releases/latest"><img src="https://img.shields.io/github/v/release/DFreds/dfreds-settings-clarity?style=for-the-badge&logo=gitbook&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"></a>
+    <a href="https://github.com/DFreds/dfreds-settings-clarity/stargazers"><img src="https://img.shields.io/github/stars/DFreds/dfreds-settings-clarity?style=for-the-badge&logo=apachespark&color=eed49f&logoColor=D9E0EE&labelColor=302D41"></a>
+    <br>
+    <br>
+    <img src="https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/DFreds/dfreds-settings-clarity/main/static/module.json&label=Foundry%20Version&query=$.compatibility.verified&colorB=fe6a1f&style=for-the-badge&logo=foundryvirtualtabletop">
+    <a href="https://forge-vtt.com/bazaar#package=dfreds-settings-clarity"><img src="https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https://forge-vtt.com/api/bazaar/package/dfreds-settings-clarity&colorB=68a74f&style=for-the-badge&logo=condaforge"></a>
+    <br>
+    <img src="https://img.shields.io/github/downloads/DFreds/dfreds-settings-clarity/latest/dfreds-settings-clarity.zip?color=2b82fc&label=LATEST%20DOWNLOADS&style=for-the-badge">
+    <img src="https://img.shields.io/github/downloads/DFreds/dfreds-settings-clarity/total?color=2b82fc&label=TOTAL%20DOWNLOADS&style=for-the-badge">
+    <br>
+    <br>
+    <a href="https://www.patreon.com/dfreds"><img src="https://img.shields.io/badge/-Patreon-%23f96854?style=for-the-badge&logo=patreon"></a>
+    <a href="https://www.buymeacoffee.com/dfreds"><img src="https://img.shields.io/badge/-Buy%20Me%20A%20Coffee-%23ff813f?style=for-the-badge&logo=buymeacoffee"></a>
+    <a href="https://discord.gg/Wq8AEV9bWb"><img src="https://img.shields.io/badge/-Discord-%235865f2?style=for-the-badge"></a>
+</p>
 
-[![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https://forge-vtt.com/api/bazaar/package/dfreds-settings-clarity&colorB=68a74f&style=for-the-badge)](https://forge-vtt.com/bazaar#package=dfreds-settings-clarity)
-![Latest Release Download Count](https://img.shields.io/github/downloads/DFreds/dfreds-settings-clarity/latest/dfreds-settings-clarity.zip?color=2b82fc&label=LATEST%20DOWNLOADS&style=for-the-badge)
-![Total Download Count](https://img.shields.io/github/downloads/DFreds/dfreds-settings-clarity/total?color=2b82fc&label=TOTAL%20DOWNLOADS&style=for-the-badge)
-
-**DFreds Settings Clarity** is a FoundryVTT module that indicates if a setting is a world or client scope.
+<p align="center">
+    <b>DFreds Settings Clarity</b> is a FoundryVTT module that indicates if a setting is a world or client scope.
+</p>
 
 ## Let Me Sell You This
 
@@ -33,9 +54,3 @@ per user).
   developers to do their thang. Note that if you for some reason don't want to
   install this, a shim will be used instead. You'll be pestered to install it
   though so... [just do it](https://www.youtube.com/watch?v=ZXsQAXx_ao0).
-
-## This Looks Familiar
-
-A similar module used to exist maintained by DragonFlagon called DF Settings
-Clarity. This is the continuation of that helpful module after it was abandoned.
-And hey! The module name includes a whole extra "reds" in it now.
