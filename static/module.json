@@ -1,6 +1,6 @@
 {
-    "id": "dfreds-settings-clarity",
-    "title": "DFreds Settings Clarity",
+    "id": "dfreds-obvious-settings",
+    "title": "DFreds Obvious Settings",
     "description": "A FoundryVTT module that indicates if a setting is a world or client scope.",
     "version": "1.0.0",
     "compatibility": {
@@ -8,7 +8,7 @@
         "verified": "12.331",
         "maximum": 12
     },
-    "esmodules": ["dfreds-settings-clarity.mjs"],
+    "esmodules": ["dfreds-obvious-settings.mjs"],
     "scripts": [],
     "styles": [],
     "packs": [],
@@ -27,13 +27,13 @@
         }
     ],
     "socket": false,
-    "url": "https://github.com/DFreds/dfreds-settings-clarity",
-    "manifest": "https://github.com/DFreds/dfreds-settings-clarity/releases/latest/download/module.json",
-    "download": "https://github.com/DFreds/dfreds-settings-clarity/releases/download/v1.0.0/dfreds-settings-clarity.zip",
-    "license": "https://github.com/DFreds/dfreds-settings-clarity/blob/main/LICENSE",
-    "readme": "https://github.com/DFreds/dfreds-settings-clarity/blob/main/README.md",
-    "bugs": "https://github.com/DFreds/dfreds-settings-clarity/issues",
-    "changelog": "https://github.com/DFreds/dfreds-settings-clarity/releases",
+    "url": "https://github.com/DFreds/dfreds-obvious-settings",
+    "manifest": "https://github.com/DFreds/dfreds-obvious-settings/releases/latest/download/module.json",
+    "download": "https://github.com/DFreds/dfreds-obvious-settings/releases/download/v1.0.0/dfreds-obvious-settings.zip",
+    "license": "https://github.com/DFreds/dfreds-obvious-settings/blob/main/LICENSE",
+    "readme": "https://github.com/DFreds/dfreds-obvious-settings/blob/main/README.md",
+    "bugs": "https://github.com/DFreds/dfreds-obvious-settings/issues",
+    "changelog": "https://github.com/DFreds/dfreds-obvious-settings/releases",
     "library": false,
     "media": []
 }

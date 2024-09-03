@@ -38,11 +38,11 @@ jobs:
         env:
           version: ${{steps.get_version.outputs.version-without-v}}
           manifest: https://github.com/${{github.repository}}/releases/latest/download/module.json
-          download: https://github.com/${{github.repository}}/releases/download/${{steps.get_version.outputs.version}}/dfreds-settings-clarity.zip
+          download: https://github.com/${{github.repository}}/releases/download/${{steps.get_version.outputs.version}}/dfreds-obvious-settings.zip
 
       - name: Zip files
         working-directory: ./dist
-        run: zip -r ./dfreds-settings-clarity.zip ./*
+        run: zip -r ./dfreds-obvious-settings.zip ./*
 
       - name: Get changes between tags
         id: changes
@@ -53,7 +53,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true # Set this to false if you want to prevent updating existing releases
-          artifacts: "./dist/module.json, ./dist/dfreds-settings-clarity.zip"
+          artifacts: "./dist/module.json, ./dist/dfreds-obvious-settings.zip"
           body: "${{ steps.changes.outputs.changes }} \n ${{ github.event.release.body }}"
           draft: true
           generateReleaseNotes: true

@@ -6,7 +6,7 @@ import path from "path";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
-const PACKAGE_ID = "modules/dfreds-settings-clarity";
+const PACKAGE_ID = "modules/dfreds-obvious-settings";
 
 const config = Vite.defineConfig(({ command, mode }): Vite.UserConfig => {
     const buildMode = mode === "production" ? "production" : "development";
@@ -37,17 +37,17 @@ const config = Vite.defineConfig(({ command, mode }): Vite.UserConfig => {
         fs.writeFileSync("./index.html", `<h1>${message}</h1>\n`);
         if (!fs.existsSync("./styles")) fs.mkdirSync("./styles");
         fs.writeFileSync(
-            "./styles/dfreds-settings-clarity.css",
+            "./styles/dfreds-obvious-settings.css",
             `/** ${message} */\n`,
         );
         fs.writeFileSync(
-            "./dfreds-settings-clarity.mjs",
+            "./dfreds-obvious-settings.mjs",
             `/** ${message} */\n\nwindow.global = window;\nimport "./src/ts/module.ts";\n`,
         );
     }
 
     return {
-        base: command === "build" ? "./" : `/modules/dfreds-settings-clarity/`,
+        base: command === "build" ? "./" : `/modules/dfreds-obvious-settings/`,
         publicDir: "static",
         define: {},
         esbuild: { keepNames: true },
@@ -57,7 +57,7 @@ const config = Vite.defineConfig(({ command, mode }): Vite.UserConfig => {
             minify: false,
             sourcemap: buildMode === "development",
             lib: {
-                name: "dfreds-settings-clarity",
+                name: "dfreds-obvious-settings",
                 entry: "src/ts/module.ts",
                 formats: ["es"],
                 fileName: "module",
@@ -66,10 +66,10 @@ const config = Vite.defineConfig(({ command, mode }): Vite.UserConfig => {
                 output: {
                     assetFileNames: ({ name }): string =>
                         name === "style.css"
-                            ? "styles/dfreds-settings-clarity.css"
+                            ? "styles/dfreds-obvious-settings.css"
                             : name ?? "",
                     chunkFileNames: "[name].mjs",
-                    entryFileNames: "dfreds-settings-clarity.mjs",
+                    entryFileNames: "dfreds-obvious-settings.mjs",
                 },
             },
             target: "es2022",
@@ -90,7 +90,7 @@ const config = Vite.defineConfig(({ command, mode }): Vite.UserConfig => {
             port: 30001,
             open: false,
             proxy: {
-                "^(?!/modules/dfreds-settings-clarity/)":
+                "^(?!/modules/dfreds-obvious-settings/)":
                     "http://localhost:30000/",
                 "/socket.io": {
                     target: "ws://localhost:30000",
@@ -134,7 +134,7 @@ function deleteLockFilePlugin(): Vite.Plugin {
             const outDir = outputOptions.dir ?? "";
             const lockFile = path.resolve(
                 outDir,
-                "dfreds-settings-clarity.lock",
+                "dfreds-obvious-settings.lock",
             );
             fs.rmSync(lockFile);
         },
