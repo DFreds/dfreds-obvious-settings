@@ -42,6 +42,13 @@ Hooks.on(
                             categorySection: section,
                         });
 
+                        toggleChangedIndicator({
+                            identifier: setting.id,
+                            original: setting.default,
+                            value: setting.value,
+                            categorySection: section,
+                        });
+
                         return setting;
                     },
                 );
@@ -51,6 +58,35 @@ Hooks.on(
         );
     },
 );
+
+function toggleChangedIndicator({
+    identifier,
+    original,
+    value,
+    categorySection,
+}: {
+    identifier: string;
+    original: any;
+    value: any;
+    categorySection: JQuery<HTMLElement>;
+}) {
+    const formGroup = categorySection
+        .find(`[name="${identifier}"], [data-key="${identifier}"]`)
+        .closest(".form-group");
+    const notes = formGroup.find("p");
+
+    // Fixes issue with some settings being null by default (why tho)
+    if (original) {
+        // Fixes issues with selections not being the same type
+        // eslint-disable-next-line eqeqeq
+        if (original == value) {
+            formGroup.removeClass("obvious-settings-modified");
+        } else {
+            formGroup.addClass("obvious-settings-modified");
+            notes.append(`<p><b>Default</b>: ${original}`);
+        }
+    }
+}
 
 function addIconToLabel({
     identifier,

@@ -10,7 +10,7 @@
     },
     "esmodules": ["dfreds-obvious-settings.mjs"],
     "scripts": [],
-    "styles": [],
+    "styles": ["styles/dfreds-obvious-settings.css"],
     "packs": [],
     "packFolders": [],
     "relationships": {
