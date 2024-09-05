@@ -13,6 +13,8 @@ Hooks.on(
         html: JQuery<HTMLElement>,
         data: FormApplicationData<object>,
     ) {
+        const moduleSettings = new Settings();
+
         const settingsData = data as SettingsData;
         settingsData.categories = settingsData.categories.map(
             (category: Category) => {
@@ -42,12 +44,14 @@ Hooks.on(
                             categorySection: section,
                         });
 
-                        toggleChangedIndicator({
-                            identifier: setting.id,
-                            original: setting.default,
-                            value: setting.value,
-                            categorySection: section,
-                        });
+                        if (moduleSettings.showNonDefaultIndicator) {
+                            toggleChangedIndicator({
+                                identifier: setting.id,
+                                original: setting.default,
+                                value: setting.value,
+                                categorySection: section,
+                            });
+                        }
 
                         return setting;
                     },
