@@ -80,7 +80,7 @@ function toggleChangedIndicator({
     const notes = formGroup.find("p");
 
     // Fixes issue with some settings being null by default (why tho)
-    if (original) {
+    if (original !== null) {
         // Fixes issues with selections not being the same type
         // eslint-disable-next-line eqeqeq
         if (original == value) {
