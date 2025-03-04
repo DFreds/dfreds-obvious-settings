@@ -4,7 +4,7 @@ class Settings {
     // Settings keys
     SHOW_NON_DEFAULT_INDICATOR = "showNonDefaultIndicator";
 
-    registerSettings(): void {
+    register(): void {
         game.settings.register(MODULE_ID, this.SHOW_NON_DEFAULT_INDICATOR, {
             name: "ObviousSettings.SettingShowNonDefaultIndicatorsName",
             hint: "ObviousSettings.SettingShowNonDefaultIndicatorsHint",

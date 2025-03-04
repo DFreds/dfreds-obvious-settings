@@ -3,7 +3,7 @@ import { DataField } from "types/foundry/common/data/fields.js";
 import { Settings } from "./settings.ts";
 
 Hooks.once("init", () => {
-    new Settings().registerSettings();
+    new Settings().register();
 });
 
 Hooks.on(
