@@ -35,23 +35,13 @@
     <b>DFreds Obvious Settings</b> is a FoundryVTT module that makes the settings configuration more obvious in various ways.
 </p>
 
-## Let Me Sell You This
+## Features
 
-When setting up your new game, isn't it a bit confusing which settings will
-impact players, and which settings will only impact yourself? Do you forget what
-settings are different from their default values? Well, if only there was a
-module to help you out...
+- Displays what settings are client based or world based
+- Shows when a setting is not set to it's default value
 
-## What This Module Does
+## Getting Started
 
-This module adds a 🌎 icon before settings scoped to "world" (will be set for
-all players) and a 👤 icon before settings scoped to "client" (personal settings
-per user).
+### See the [documentation](https://www.dfreds-modules.com/free-modules/obvious-settings) page for details.
 
-It also indicates if a setting is not set to its default value.
-
-![Obvious Settings](docs/showcase.png)
-
-You can configure some stuff:
-
-![Settings](docs/settings.png)
+![Obvious Settings](https://www.dfreds-modules.com/assets/images/showcase-4a2af17ca298bcd87bb0d5505a0642a4.png)
