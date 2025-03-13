@@ -40,8 +40,8 @@
 - Displays what settings are client based or world based
 - Shows when a setting is not set to it's default value
 
+![Obvious Settings](https://www.dfreds-modules.com/assets/images/showcase-4a2af17ca298bcd87bb0d5505a0642a4.png)
+
 ## Getting Started
 
 ### See the [documentation](https://www.dfreds-modules.com/free-modules/obvious-settings) page for details.
-
-![Obvious Settings](https://www.dfreds-modules.com/assets/images/showcase-4a2af17ca298bcd87bb0d5505a0642a4.png)
