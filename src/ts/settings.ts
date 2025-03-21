@@ -6,8 +6,8 @@ class Settings {
 
     register(): void {
         game.settings.register(MODULE_ID, this.SHOW_NON_DEFAULT_INDICATOR, {
-            name: EN_JSON.ObviousSettings.SettingShowNonDefaultIndicatorsName,
-            hint: EN_JSON.ObviousSettings.SettingShowNonDefaultIndicatorsHint,
+            name: "ObviousSettings.Setting.ShowNonDefaultIndicatorsName",
+            hint: "ObviousSettings.Setting.ShowNonDefaultIndicatorsHint",
             scope: "client",
             config: true,
             default: true,
