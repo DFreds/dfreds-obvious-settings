@@ -86,6 +86,10 @@ declare global {
         type: SettingsMenuConstructor;
         /** If true, only a GM can edit this Setting */
         restricted: boolean;
+        /** The key of the Setting */
+        key: string;
+        /** The namespace of the Setting */
+        namespace: string;
     }
 
     interface SettingsMenuConstructor {
