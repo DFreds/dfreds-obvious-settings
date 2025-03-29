@@ -31,6 +31,8 @@ declare global {
             | Record<string, unknown>
             | undefined,
     > {
+        /** The unique identifier for the setting */
+        id?: string;
         /** A unique machine-readable id for the setting */
         key: string;
         /** The namespace the setting belongs to */
