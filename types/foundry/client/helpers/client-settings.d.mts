@@ -127,7 +127,7 @@ export default class ClientSettings {
 
 interface SettingRegistration<
     TChoices extends Record<string, unknown> | undefined = Record<string, unknown> | undefined,
-> extends Omit<SettingConfig<TChoices>, "config" | "key" | "namespace" | "scope"> {
+> extends Omit<SettingConfig<TChoices>, "config" | "key" | "namespace" | "scope" | "id"> {
     config?: boolean;
     scope?: "client" | "world";
 }

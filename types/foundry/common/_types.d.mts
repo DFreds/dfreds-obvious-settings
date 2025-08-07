@@ -89,6 +89,7 @@ type ColorSource = number | [red: number, green: number, blue: number] | string 
 export interface SettingConfig<
     TChoices extends Record<string, unknown> | undefined = Record<string, unknown> | undefined,
 > {
+    id: string;
     /** A unique machine-readable id for the setting */
     key: string;
     /** The namespace the setting belongs to */
