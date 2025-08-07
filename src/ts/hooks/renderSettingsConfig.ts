@@ -10,20 +10,24 @@ const RenderSettingsConfig: Listener = {
                 const $html = $(html);
 
                 for (const menu of game.settings.menus.values()) {
+                    // NOTE: This is a hack to get the menu type since it is wrong in pf2e
+                    const m = menu as unknown as {
+                        namespace: string;
+                        key: string;
+                        restricted: boolean;
+                    };
+
                     const section = findSectionForSetting({
                         $html,
-                        namespace: menu.namespace,
+                        namespace: m.namespace,
                     });
                     if (!section) continue;
 
-                    const menuLabel = findMenuLabel({
-                        section,
-                        key: menu.key,
-                    });
+                    const menuLabel = findMenuLabel({ section, key: m.key });
                     if (!menuLabel) continue;
 
                     addIconToMenuLabel({
-                        isWorld: menu.restricted,
+                        isWorld: m.restricted,
                         label: menuLabel,
                     });
                 }
@@ -61,48 +65,6 @@ const RenderSettingsConfig: Listener = {
                         });
                     }
                 }
-
-                // const settingsData = data as SettingsData;
-                // settingsData.categories = settingsData.categories.map(
-                //     (category: Category) => {
-                //         const section = html.find(
-                //             `section.category[data-category="${category.id}"]`,
-                //         );
-
-                //         category.menus = category.menus.map(
-                //             (menu: MenuData) => {
-                //                 menu.name = game.i18n.localize(menu.name);
-
-                //                 addIconToLabel({
-                //                     identifier: menu.key,
-                //                     isWorld: menu.restricted,
-                //                     categorySection: section,
-                //                 });
-
-                //                 return menu;
-                //             },
-                //         );
-
-                //         category.settings = category.settings.map(
-                //             (setting: SettingData) => {
-                //                 setting.name = game.i18n.localize(setting.name);
-
-                //                 if (moduleSettings.showNonDefaultIndicator) {
-                //                     toggleChangedIndicator({
-                //                         identifier: setting.id,
-                //                         original: setting.default,
-                //                         value: setting.value,
-                //                         categorySection: section,
-                //                     });
-                //                 }
-
-                //                 return setting;
-                //             },
-                //         );
-
-                //         return category;
-                //     },
-                // );
             },
         );
     },
