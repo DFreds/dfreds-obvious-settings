@@ -9,11 +9,12 @@ const RenderSettingsConfig: Listener = {
                 const moduleSettings = new Settings();
                 const $html = $(html);
 
-                for (const menu of game.settings.menus.values()) {
+                for (const entry of game.settings.menus.entries()) {
+                    const [key, menu] = entry;
+
                     // NOTE: This is a hack to get the menu type since it is wrong in pf2e
                     const m = menu as unknown as {
                         namespace: string;
-                        key: string;
                         restricted: boolean;
                     };
 
@@ -23,7 +24,7 @@ const RenderSettingsConfig: Listener = {
                     });
                     if (!section) continue;
 
-                    const menuLabel = findMenuLabel({ section, key: m.key });
+                    const menuLabel = findMenuLabel({ section, key });
                     if (!menuLabel) continue;
 
                     addIconToMenuLabel({
@@ -32,7 +33,8 @@ const RenderSettingsConfig: Listener = {
                     });
                 }
 
-                for (const setting of game.settings.settings.values()) {
+                for (const entry of game.settings.settings.entries()) {
+                    const [key, setting] = entry;
                     const section = findSectionForSetting({
                         $html,
                         namespace: setting.namespace,
@@ -41,7 +43,7 @@ const RenderSettingsConfig: Listener = {
 
                     const settingLabel = findSettingLabel({
                         section,
-                        identifier: setting.id ?? "",
+                        identifier: key,
                     });
                     if (!settingLabel) continue;
 
@@ -57,7 +59,7 @@ const RenderSettingsConfig: Listener = {
                         );
 
                         toggleChangedIndicator({
-                            identifier: setting.id ?? "",
+                            identifier: key,
                             original: setting.default,
                             value: settingValue,
                             categorySection: section,

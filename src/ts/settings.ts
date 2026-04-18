@@ -15,11 +15,11 @@ class Settings {
         });
     }
 
-    get showNonDefaultIndicator(): Boolean {
+    get showNonDefaultIndicator(): boolean {
         return game.settings.get(
             MODULE_ID,
             this.SHOW_NON_DEFAULT_INDICATOR,
-        ) as Boolean;
+        ) as unknown as boolean;
     }
 }
 
