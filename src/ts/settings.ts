@@ -16,10 +16,7 @@ class Settings {
     }
 
     get showNonDefaultIndicator(): boolean {
-        return game.settings.get(
-            MODULE_ID,
-            this.SHOW_NON_DEFAULT_INDICATOR,
-        ) as unknown as boolean;
+        return game.settings.get(MODULE_ID, this.SHOW_NON_DEFAULT_INDICATOR) as unknown as boolean;
     }
 }
 

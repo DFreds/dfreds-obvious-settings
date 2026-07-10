@@ -3,72 +3,66 @@ import { Settings } from "../settings.ts";
 
 const RenderSettingsConfig: Listener = {
     listen(): void {
-        Hooks.on(
-            "renderSettingsConfig",
-            (_config: any, html: any, _data: any) => {
-                const moduleSettings = new Settings();
-                const $html = $(html);
+        Hooks.on("renderSettingsConfig", (_config: any, html: any, _data: any) => {
+            const moduleSettings = new Settings();
+            const $html = $(html);
 
-                for (const entry of game.settings.menus.entries()) {
-                    const [key, menu] = entry;
+            for (const entry of game.settings.menus.entries()) {
+                const [key, menu] = entry;
 
-                    // NOTE: This is a hack to get the menu type since it is wrong in pf2e
-                    const m = menu as unknown as {
-                        namespace: string;
-                        restricted: boolean;
-                    };
+                // NOTE: This is a hack to get the menu type since it is wrong in pf2e
+                const m = menu as unknown as {
+                    namespace: string;
+                    restricted: boolean;
+                };
 
-                    const section = findSectionForSetting({
-                        $html,
-                        namespace: m.namespace,
-                    });
-                    if (!section) continue;
+                const section = findSectionForSetting({
+                    $html,
+                    namespace: m.namespace,
+                });
+                if (!section) continue;
 
-                    const menuLabel = findMenuLabel({ section, key });
-                    if (!menuLabel) continue;
+                const menuLabel = findMenuLabel({ section, key });
+                if (!menuLabel) continue;
 
-                    addIconToMenuLabel({
-                        isWorld: m.restricted,
-                        label: menuLabel,
-                    });
-                }
+                addIconToMenuLabel({
+                    isWorld: m.restricted,
+                    label: menuLabel,
+                });
+            }
 
-                for (const entry of game.settings.settings.entries()) {
-                    const [key, setting] = entry;
-                    const section = findSectionForSetting({
-                        $html,
-                        namespace: setting.namespace,
-                    });
-                    if (!section) continue;
+            for (const entry of game.settings.settings.entries()) {
+                const [key, setting] = entry;
+                const section = findSectionForSetting({
+                    $html,
+                    namespace: setting.namespace,
+                });
+                if (!section) continue;
 
-                    const settingLabel = findSettingLabel({
-                        section,
+                const settingLabel = findSettingLabel({
+                    section,
+                    identifier: key,
+                });
+                if (!settingLabel) continue;
+
+                addIconToSettingLabel({
+                    isWorld: setting.scope === "world",
+                    label: settingLabel,
+                });
+
+                if (moduleSettings.showNonDefaultIndicator) {
+                    const settingValue = game.settings.get(setting.namespace, setting.key);
+
+                    toggleChangedIndicator({
                         identifier: key,
+                        original: setting.default,
+                        value: settingValue,
+                        categorySection: section,
+                        choices: setting.choices,
                     });
-                    if (!settingLabel) continue;
-
-                    addIconToSettingLabel({
-                        isWorld: setting.scope === "world",
-                        label: settingLabel,
-                    });
-
-                    if (moduleSettings.showNonDefaultIndicator) {
-                        const settingValue = game.settings.get(
-                            setting.namespace,
-                            setting.key,
-                        );
-
-                        toggleChangedIndicator({
-                            identifier: key,
-                            original: setting.default,
-                            value: settingValue,
-                            categorySection: section,
-                            choices: setting.choices,
-                        });
-                    }
                 }
-            },
-        );
+            }
+        });
     },
 };
 
@@ -79,9 +73,7 @@ function findSectionForSetting({
     $html: JQuery<HTMLElement>;
     namespace: string;
 }): JQuery<HTMLElement> | null {
-    const section = $html.find(
-        `.categories section[data-category="${namespace}"]`,
-    );
+    const section = $html.find(`.categories section[data-category="${namespace}"]`);
 
     return section;
 }
@@ -99,9 +91,7 @@ function toggleChangedIndicator({
     categorySection: JQuery<HTMLElement>;
     choices?: Record<string, unknown>;
 }) {
-    const formGroup = categorySection
-        .find(`[name="${identifier}"]`)
-        .closest(".form-group");
+    const formGroup = categorySection.find(`[name="${identifier}"]`).closest(".form-group");
 
     if (!formGroup.length) return;
 
@@ -120,11 +110,7 @@ function toggleChangedIndicator({
                 const originalChoice = choices[original];
 
                 if (originalChoice) {
-                    notes.append(
-                        `<p><b>Default</b>: ${game.i18n.localize(
-                            originalChoice as string,
-                        )}</p>`,
-                    );
+                    notes.append(`<p><b>Default</b>: ${game.i18n.localize(originalChoice as string)}</p>`);
                 } else {
                     notes.append(`<p><b>Default</b>: ${original}</p>`);
                 }
@@ -142,53 +128,25 @@ function findSettingLabel({
     section: JQuery<HTMLElement>;
     identifier: string;
 }): JQuery<HTMLElement> | null {
-    const label = section
-        .find(`[name="${identifier}"]`)
-        .closest(".form-group")
-        .find("label");
+    const label = section.find(`[name="${identifier}"]`).closest(".form-group").find("label");
 
     return label;
 }
 
-function addIconToSettingLabel({
-    isWorld,
-    label,
-}: {
-    isWorld: boolean;
-    label: JQuery<HTMLElement>;
-}) {
-    const icon = isWorld
-        ? "<i class='fas fa-globe'></i>"
-        : "<i class='fas fa-user'></i>";
+function addIconToSettingLabel({ isWorld, label }: { isWorld: boolean; label: JQuery<HTMLElement> }) {
+    const icon = isWorld ? "<i class='fas fa-globe'></i>" : "<i class='fas fa-user'></i>";
 
     label.prepend(`${icon} `);
 }
 
-function findMenuLabel({
-    section,
-    key,
-}: {
-    section: JQuery<HTMLElement>;
-    key: string;
-}): JQuery<HTMLElement> | null {
-    const label = section
-        .find(`button[data-key="${key}"]`)
-        .closest(".form-group")
-        .find("label");
+function findMenuLabel({ section, key }: { section: JQuery<HTMLElement>; key: string }): JQuery<HTMLElement> | null {
+    const label = section.find(`button[data-key="${key}"]`).closest(".form-group").find("label");
 
     return label;
 }
 
-function addIconToMenuLabel({
-    isWorld,
-    label,
-}: {
-    isWorld: boolean;
-    label: JQuery<HTMLElement>;
-}) {
-    const icon = isWorld
-        ? "<i class='fas fa-globe'></i>"
-        : "<i class='fas fa-user'></i>";
+function addIconToMenuLabel({ isWorld, label }: { isWorld: boolean; label: JQuery<HTMLElement> }) {
+    const icon = isWorld ? "<i class='fas fa-globe'></i>" : "<i class='fas fa-user'></i>";
 
     label.prepend(`${icon} `);
 }
