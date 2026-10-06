@@ -15,20 +15,14 @@ const RenderSettingsConfig: Listener = {
 
                 const formGroup = findFormGroup(html, m.namespace, `button[data-key="${key}"]`);
 
-                addIconToMenuLabel({
-                    isWorld: m.restricted,
-                    label: formGroup?.querySelector("label"),
-                });
+                addScopeIcon(formGroup?.querySelector("label"), m.restricted);
             }
 
             for (const [key, setting] of game.settings.settings.entries()) {
                 const formGroup = findFormGroup(html, setting.namespace, `[name="${key}"]`);
                 if (!formGroup) continue;
 
-                addIconToSettingLabel({
-                    isWorld: setting.scope === "world",
-                    label: formGroup.querySelector("label"),
-                });
+                addScopeIcon(formGroup.querySelector("label"), setting.scope === "world");
 
                 if (moduleSettings.showNonDefaultIndicator) {
                     const settingValue = game.settings.get(setting.namespace, setting.key);
@@ -93,16 +87,8 @@ function toggleChangedIndicator({
     }
 }
 
-function addIconToSettingLabel({ isWorld, label }: { isWorld: boolean; label: Element | null | undefined }) {
-    const icon = isWorld ? "<i class='fas fa-globe'></i>" : "<i class='fas fa-user'></i>";
-
-    label?.insertAdjacentHTML("afterbegin", `${icon} `);
-}
-
-function addIconToMenuLabel({ isWorld, label }: { isWorld: boolean; label: Element | null | undefined }) {
-    const icon = isWorld ? "<i class='fas fa-globe'></i>" : "<i class='fas fa-user'></i>";
-
-    label?.insertAdjacentHTML("afterbegin", `${icon} `);
+function addScopeIcon(label: Element | null | undefined, isWorld: boolean): void {
+    label?.insertAdjacentHTML("afterbegin", `<i class="fas fa-${isWorld ? "globe" : "user"}"></i> `);
 }
 
 export { RenderSettingsConfig };
