@@ -58,33 +58,17 @@ function toggleChangedIndicator({
     value: any;
     choices?: Record<string, unknown>;
 }) {
-    const notes = formGroup.querySelector("p");
+    const hasNoDefault = original === null;
+    if (hasNoDefault) return;
 
-    // Fixes issue with some settings being null by default (why tho)
-    if (original !== null) {
-        // Fixes issues with selections not being the same type
-        // eslint-disable-next-line eqeqeq
-        if (original == value) {
-            formGroup.classList.remove("obvious-settings-modified");
-        } else {
-            formGroup.classList.add("obvious-settings-modified");
+    // eslint-disable-next-line eqeqeq
+    const isChanged = original != value;
+    formGroup.classList.toggle("obvious-settings-modified", isChanged);
+    if (!isChanged) return;
 
-            if (choices) {
-                const originalChoice = choices[original];
-
-                if (originalChoice) {
-                    notes?.insertAdjacentHTML(
-                        "beforeend",
-                        `<p><b>Default</b>: ${game.i18n.localize(originalChoice as string)}</p>`,
-                    );
-                } else {
-                    notes?.insertAdjacentHTML("beforeend", `<p><b>Default</b>: ${original}</p>`);
-                }
-            } else {
-                notes?.insertAdjacentHTML("beforeend", `<p><b>Default</b>: ${original}</p>`);
-            }
-        }
-    }
+    const originalChoice = choices?.[original];
+    const shown = originalChoice ? game.i18n.localize(originalChoice as string) : original;
+    formGroup.querySelector("p")?.insertAdjacentHTML("beforeend", `<p><b>Default</b>: ${shown}</p>`);
 }
 
 function addScopeIcon(label: Element | null | undefined, isWorld: boolean): void {
