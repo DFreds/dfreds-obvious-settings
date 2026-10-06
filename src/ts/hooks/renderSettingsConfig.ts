@@ -68,7 +68,9 @@ function toggleChangedIndicator({
 
     const originalChoice = choices?.[original];
     const shown = originalChoice ? game.i18n.localize(originalChoice as string) : original;
-    formGroup.querySelector("p")?.insertAdjacentHTML("beforeend", `<p><b>Default</b>: ${shown}</p>`);
+    formGroup
+        .querySelector("p")
+        ?.insertAdjacentHTML("beforeend", `<p><b>${game.i18n.localize("ObviousSettings.Default")}</b>: ${shown}</p>`);
 }
 
 function addScopeIcon(label: Element | null | undefined, isWorld: boolean): void {
