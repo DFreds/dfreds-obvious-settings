@@ -67,7 +67,9 @@ function toggleChangedIndicator({
     if (!isChanged) return;
 
     const originalChoice = choices?.[original];
-    const shown = originalChoice ? game.i18n.localize(originalChoice as string) : original;
+    const shown = foundry.utils.escapeHTML(
+        originalChoice ? game.i18n.localize(originalChoice as string) : String(original),
+    );
     formGroup
         .querySelector("p")
         ?.insertAdjacentHTML("beforeend", `<p><b>${game.i18n.localize("ObviousSettings.Default")}</b>: ${shown}</p>`);
