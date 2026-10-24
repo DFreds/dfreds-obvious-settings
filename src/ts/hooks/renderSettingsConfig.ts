@@ -61,10 +61,11 @@ function toggleChangedIndicator({
     const hasNoDefault = original === null;
     if (hasNoDefault) return;
 
+    const isObject = typeof original === "object";
     // eslint-disable-next-line eqeqeq
-    const isChanged = original != value;
+    const isChanged = isObject ? !foundry.utils.equals(original, value) : original != value;
     formGroup.classList.toggle("obvious-settings-modified", isChanged);
-    if (!isChanged) return;
+    if (!isChanged || isObject) return;
 
     const originalChoice = choices?.[original];
     const shown = foundry.utils.escapeHTML(
