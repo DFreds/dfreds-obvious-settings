@@ -38,7 +38,7 @@
 ## Features
 
 - Displays what settings are client based or world based
-- Shows when a setting is not set to it's default value
+- Shows when a setting is not set to its default value
 
 ![Obvious Settings](https://www.dfreds-modules.com/assets/images/showcase-4a2af17ca298bcd87bb0d5505a0642a4.png)
 
