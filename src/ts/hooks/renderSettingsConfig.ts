@@ -71,9 +71,13 @@ function toggleChangedIndicator({
     const shown = foundry.utils.escapeHTML(
         originalChoice ? game.i18n.localize(originalChoice as string) : String(original),
     );
-    formGroup
-        .querySelector("p")
-        ?.insertAdjacentHTML("beforeend", `<p><b>${game.i18n.localize("ObviousSettings.Default")}</b>: ${shown}</p>`);
+    let hint = formGroup.querySelector("p.hint");
+    if (!hint) {
+        hint = document.createElement("p");
+        hint.className = "hint";
+        formGroup.append(hint);
+    }
+    hint.insertAdjacentHTML("beforeend", `<p><b>${game.i18n.localize("ObviousSettings.Default")}</b>: ${shown}</p>`);
 }
 
 function addScopeIcon(label: Element | null | undefined, isWorld: boolean): void {
